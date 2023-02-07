@@ -5,6 +5,8 @@ on: repository_dispatch
 jobs:
   dispatch:
     name: Dispatch
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     env:
       CLIENT_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
