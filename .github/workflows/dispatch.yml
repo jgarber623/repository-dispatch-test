@@ -6,6 +6,20 @@ jobs:
   dispatch:
     name: Dispatch
     runs-on: ubuntu-latest
+    env:
+      CLIENT_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
     steps:
-      - run: echo '${{ toJSON(github.event.client_payload) }}'
-
+      - uses: actions/checkout@v3
+      - run: echo $CLIENT_PAYLOAD
+      - name: Dump payload to file
+        run: |
+          mkdir -p ./data
+          echo $CLIENT_PAYLOAD > ./data/${date +%Y-%m-%dT%H%M}.json
+      - name: Commit and push changed files
+        run: |
+          git diff
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config --global user.name 'github-actions[bot]'
+          git add -A
+          git commit -m '🤖 Commit new payload file' || exit 0
+          git push
