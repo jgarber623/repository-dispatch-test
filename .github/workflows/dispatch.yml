@@ -7,8 +7,5 @@ jobs:
     name: Dispatch
     runs-on: ubuntu-latest
     steps:
-      - uses: sergeysova/jq-action@v2
-        id: payload
-        with:
-          cmd: echo '${{ toJSON(github.event.client_payload) }}' | jq "."
-      - run: echo '${{ steps.payload.outputs.value }}'
+      - run: echo '${{ toJSON(github.event.client_payload) }}'
+
