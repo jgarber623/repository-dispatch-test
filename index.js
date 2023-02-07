@@ -8,7 +8,9 @@ if (message.type && message.type.toLowerCase() === 'follow') {
   
   console.log(`Processing follow request from ${follower}...`);
   
-  const followers = JSON.parse(fs.readFileSync('./followers.json'));
+  let followers = JSON.parse(fs.readFileSync('./followers.json'));
+  
+  console.log(followers);
   
   if (followers.includes(follower)) {
     console.log(`${follower} is already a follower. Skipping...`);
