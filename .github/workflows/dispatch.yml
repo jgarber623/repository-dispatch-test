@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: sergeysova/jq-action@v2
+        id: payload
         with:
           cmd: echo '${{ toJSON(github.event.client_payload) }}' | jq "."
-          multiline: true
+      - run: echo '${{ steps.payload.outputs.value }}'
