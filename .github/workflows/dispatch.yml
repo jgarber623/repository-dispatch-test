@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - run: |
-          apt update --quiet
-          apt install --quiet --yes jq
+          sudo apt update --quiet
+          sudo apt install --quiet --yes jq
           echo ${{ github.event.client_payload }} | jq "."
