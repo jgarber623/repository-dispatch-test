@@ -5,9 +5,9 @@ on: repository_dispatch
 jobs:
   dispatch:
     name: Dispatch
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - run: |
-          sudo apt update --quiet
-          sudo apt install --quiet --yes jq
-          echo ${{ github.event.client_payload }} | jq "."
+      - uses: sergeysova/jq-action@v2
+        with:
+          cmd: echo ${{ github.event.client_payload }} | jq "."
+          multiline: true
