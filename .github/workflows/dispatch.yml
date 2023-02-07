@@ -14,7 +14,7 @@ jobs:
       - name: Dump payload to file
         run: |
           mkdir -p ./data
-          echo $CLIENT_PAYLOAD > ./data/${date +%Y-%m-%dT%H%M}.json
+          echo $CLIENT_PAYLOAD > ./data/$(date +%Y-%m-%dT%H%M).json
       - name: Commit and push changed files
         run: |
           git diff
