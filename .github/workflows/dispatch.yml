@@ -1,0 +1,13 @@
+name: Dispatch
+
+on: repository_dispatch
+
+jobs:
+  dispatch:
+    name: Dispatch
+    runs-on: ubuntu-20.04
+    steps:
+      - run: |
+          apt update --quiet
+          apt install --quiet --yes jq
+          echo ${{ github.event.client_payload }} | jq "."
