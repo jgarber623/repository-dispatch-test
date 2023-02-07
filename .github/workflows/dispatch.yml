@@ -9,5 +9,5 @@ jobs:
     steps:
       - uses: sergeysova/jq-action@v2
         with:
-          cmd: echo ${{ github.event.client_payload }} | jq "."
+          cmd: echo '${{ toJSON(github.event.client_payload) }}' | jq "."
           multiline: true
