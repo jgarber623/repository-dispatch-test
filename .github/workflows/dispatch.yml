@@ -12,7 +12,12 @@ jobs:
       CLIENT_PAYLOAD: ${{ toJSON(github.event.client_payload) }}
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
       - run: echo $CLIENT_PAYLOAD
+      - name: Run a Node.js script
+        run: node ./index.js $CLIENT_PAYLOAD
       - name: Dump payload to file
         run: |
           mkdir -p ./data
