@@ -2,6 +2,6 @@ const process = require('node:process');
 
 console.log('Parsing inbound client payload...');
 
-process.argv.forEach(value => {
+process.argv.slice(2).forEach(value => {
   return console.log(JSON.parse(value));
 });
