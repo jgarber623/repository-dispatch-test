@@ -17,7 +17,7 @@ jobs:
           node-version-file: ".nvmrc"
       - run: echo $CLIENT_PAYLOAD
       - name: Run a Node.js script
-        run: node ./index.js $CLIENT_PAYLOAD
+        run: node ./index.js "$CLIENT_PAYLOAD"
       - name: Dump payload to file
         run: |
           mkdir -p ./data
