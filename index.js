@@ -17,7 +17,11 @@ if (message.type && message.type.toLowerCase() === 'follow') {
   } else {
     console.log('Updating ./followers.json...');
     
-    fs.writeFileSync('./followers.json', JSON.stringify(followers.push(follower)));
+    followers.push(follower);
+    
+    console.log(followers);
+    
+    fs.writeFileSync('./followers.json', JSON.stringify(followers));
   }
 } else {
   console.log(`Message is of type ${message.type}. Skipping...`);
