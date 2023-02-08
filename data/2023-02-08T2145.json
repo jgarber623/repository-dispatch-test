@@ -1,0 +1,1 @@
+{ "body": {}, "headers": { "accept": "*/*", "accept-encoding": "gzip, deflate", "connection": "close", "content-length": "0", "content-type": "application/json", "date": "Sun, 06 Nov 1994 08:49:37 GMT", "host": "localhost:9090", "signature": "keyId=https://mastodon.cc/users/jgarber#main-key,headers=(request-target) host date,signature=foo", "user-agent": "HTTPie/3.2.1" } }
